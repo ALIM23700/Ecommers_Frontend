@@ -16,7 +16,7 @@ const Home = () => {
 
   return (
     <div
-      className="min-h-screen w-full bg-contain sm:bg-cover bg-center relative"
+      className="min-h-screen w-full bg-cover bg-center bg-no-repeat relative "
       style={{ backgroundImage: `url(${alim})` }}
     >
       <div className="absolute inset-0 bg-black bg-opacity-40"></div>
