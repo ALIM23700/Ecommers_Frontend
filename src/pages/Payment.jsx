@@ -4,6 +4,8 @@ import axios from "axios";
 import { useLocation, useNavigate } from "react-router-dom";
 import { clearCart } from "../services/cartSlice";
 
+const API_URL = import.meta.env.VITE_API_URL || "http://localhost:4000";
+
 const Payment = () => {
   const { cartItems } = useSelector((state) => state.cart);
   const { token } = useSelector((state) => state.auth);
@@ -32,7 +34,7 @@ const Payment = () => {
 
     try {
       const config = { headers: { Authorization: `Bearer ${token}` } };
-      const { data } = await axios.post("http://localhost:4000/api/v1/createOrder", orderData, config);
+      const { data } = await axios.post(`${API_URL}/api/v1/createOrder`, orderData, config);
 
       if (data.success) {
         alert("Order placed successfully!");
@@ -58,7 +60,10 @@ const Payment = () => {
           <option value="Pending">Cash on Delivery</option>
           <option value="Paid">Online Payment</option>
         </select>
-        <button onClick={handlePlaceOrder} className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700">
+        <button
+          onClick={handlePlaceOrder}
+          className="w-full bg-green-600 text-white py-2 rounded hover:bg-green-700"
+        >
           Place Order
         </button>
       </div>

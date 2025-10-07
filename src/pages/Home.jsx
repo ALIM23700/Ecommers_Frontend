@@ -1,5 +1,4 @@
-
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import alim from "../assets/alimvai.jpg";
 
@@ -16,21 +15,24 @@ const Home = () => {
   };
 
   return (
-    <div className="mb-[-200px] sm:mb-0">
-      <div
-        className="min-h-screen bg-contain bg-no-repeat sm:bg-cover text-white"
-        style={{ backgroundImage: `url(${alim})` }}
-      >
-        <div className="relative top-24 left-12 sm:top-48 sm:left-48">
-          <h1 className="sm:text-4xl">Welcome to Alim e-store</h1>
-          <p className="sm:text-2xl mt-5">Feel free to shopping here</p>
-          <button
-            onClick={handleGetStarted}
-            className="bg-blue-500 mt-5 hover:bg-blue-600 transition-colors duration-300 px-6 py-3 rounded-lg font-semibold shadow-lg"
-          >
-            Get Started
-          </button>
-        </div>
+    <div
+      className="min-h-screen w-full bg-cover bg-center relative"
+      style={{ backgroundImage: `url(${alim})` }}
+    >
+      <div className="absolute inset-0 bg-black bg-opacity-40"></div>
+      <div className="relative z-10 flex flex-col justify-center h-full px-4 sm:px-8 lg:px-16 py-32 sm:py-48 items-start">
+        <h1 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-snug">
+          Welcome to Alim e-store
+        </h1>
+        <p className="mt-4 sm:mt-6 text-lg sm:text-xl md:text-2xl text-white">
+          Feel free to shop here
+        </p>
+        <button
+          onClick={handleGetStarted}
+          className="mt-6 sm:mt-8 px-6 sm:px-8 py-3 sm:py-4 bg-blue-500 hover:bg-blue-600 text-white rounded-lg font-semibold shadow-lg transition-colors duration-300"
+        >
+          Get Started
+        </button>
       </div>
     </div>
   );
